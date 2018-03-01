@@ -19,6 +19,13 @@ end
 group :development do
   # Use sqlite3 as the development database for Active Record
   gem 'sqlite3'
+  gem 'listen', '~> 3.1.5'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'rails-controller-testing'
+  gem 'nyan-cat-formatter'
 end
 
 # Use Puma as the app server
@@ -35,6 +42,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'thor', '0.20.0'
 
-group :development do
-  gem 'listen', '~> 3.1.5'
-end
+gem 'bootstrap-sass'
+
+gem 'jquery-rails'
