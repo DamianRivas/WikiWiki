@@ -45,3 +45,7 @@ gem 'thor', '0.20.0'
 gem 'bootstrap-sass'
 
 gem 'jquery-rails'
+
+gem 'devise'
+
+gem 'figaro', '1.0'
