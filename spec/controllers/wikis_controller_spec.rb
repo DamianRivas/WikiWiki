@@ -93,11 +93,14 @@ RSpec.describe WikisController, type: :controller do
     end
     
     describe "GET #show" do
+      before { get :show, params: { id: wiki.id } }
       it "returns http success" do
         get :show, params: { id: wiki.id }
         
         expect(response).to have_http_status(:success)
       end
+      
+      it { should render_template('show') }
       
       it "renders the show view" do
         get :show, params: { id: wiki.id }

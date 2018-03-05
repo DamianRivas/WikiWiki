@@ -59,3 +59,6 @@ gem 'figaro', '1.0'
 
 # Pundit makes authorization easier
 gem 'pundit'
+
+# Stripe handles monetary transactions
+gem 'stripe'
