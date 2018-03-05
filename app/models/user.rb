@@ -6,4 +6,14 @@ class User < ApplicationRecord
          :confirmable
          
   has_many :wikis
+  
+  after_initialize :set_default_role
+  
+  enum role: [:standard, :premium, :admin]
+  
+  private
+  
+  def set_default_role
+    self.role ||= "standard"
+  end
 end

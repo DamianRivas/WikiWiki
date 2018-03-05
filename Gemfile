@@ -30,6 +30,10 @@ group :development, :test do
   gem 'shoulda'
 end
 
+group :test do
+  gem 'pundit-matchers', '~> 1.4.1'
+end
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -51,3 +55,6 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem 'figaro', '1.0'
+
+# Pundit makes authorization easier
+gem 'pundit'
