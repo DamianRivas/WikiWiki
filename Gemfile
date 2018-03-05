@@ -28,6 +28,7 @@ group :development, :test do
   gem 'nyan-cat-formatter'
   gem 'factory_bot_rails'
   gem 'shoulda'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :test do

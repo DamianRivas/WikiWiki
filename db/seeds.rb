@@ -1,8 +1,9 @@
 require 'random_data'
+require 'faker'
 
 15.times do
   user = User.new(
-    email: RandomData.random_email,
+    email: Faker::Internet.unique.email,
     password: 'helloworld',
     password_confirmation: 'helloworld'
   )
@@ -14,8 +15,8 @@ users = User.all
 
 50.times do
   Wiki.create!(
-    title: RandomData.random_word,
-    body: RandomData.random_paragraph,
+    title: Faker::Book.unique.title,
+    body: Faker::Lorem.paragraph(20, true, 0),
     user: users.sample
   )
 end
@@ -23,10 +24,14 @@ end
 user = User.new(
   email: 'drivas1993@gmail.com',
   password: 'helloworld',
-  password_confirmation: 'helloworld'
+  password_confirmation: 'helloworld',
+  role: 'admin'
 )
 user.skip_confirmation!
 user.save!
+
+Faker::Internet.unique.clear
+Faker::Book.unique.clear
 
 puts "Seed finished!"
 puts "#{User.count} users created"
