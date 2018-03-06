@@ -4,6 +4,6 @@ class ChargePolicy < Struct.new(:user, :charges)
   end
   
   def create?
-    edit?
+    new?
   end
 end
