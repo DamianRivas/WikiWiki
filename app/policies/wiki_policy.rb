@@ -7,7 +7,7 @@ class WikiPolicy < ApplicationPolicy
   end
   
   def show?
-    scope.where(:id => wiki.id).exists?
+    scope.where(id: wiki.id).exists?
   end
   
   def scope
