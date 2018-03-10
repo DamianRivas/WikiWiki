@@ -2,14 +2,7 @@ class WikisController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    public_wikis = Wiki.where(private: false)
-    
-    if user_signed_in?
-      user_owned_privates = Wiki.where(private: true, user_id: current_user)
-      @wikis = public_wikis.or(user_owned_privates)
-    else
-      @wikis = public_wikis
-    end
+    @wikis = policy_scope(Wiki)
   end
 
   def show
@@ -26,8 +19,10 @@ class WikisController < ApplicationController
     @wiki = Wiki.new
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
-    @wiki.private = params[:wiki][:private]
     @wiki.user = current_user
+    if params[:wiki][:private]
+      @wiki.private = params[:wiki][:private]
+    end
     
     authorize @wiki
     
@@ -50,7 +45,9 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
-    @wiki.private = params[:wiki][:private]
+    if params[:wiki][:private]
+      @wiki.private = params[:wiki][:private]
+    end
     
     authorize @wiki
     

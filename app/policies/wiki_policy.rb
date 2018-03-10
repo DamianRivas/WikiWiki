@@ -7,7 +7,7 @@ class WikiPolicy < ApplicationPolicy
   end
   
   def show?
-    Wiki.where(:id => wiki.id).exists?
+    scope.where(:id => wiki.id).exists?
   end
   
   def scope
@@ -15,15 +15,20 @@ class WikiPolicy < ApplicationPolicy
   end
   
   class Scope < Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
     def resolve
-      scope
+      public_wikis = scope.where(private: false)
+      
+      if user.nil?
+        public_wikis
+      elsif user.admin?
+        scope.all
+      elsif user.premium?
+        user_owned_privates = scope.where(user: user, private: true)
+        
+        public_wikis.or(user_owned_privates)
+      else
+        public_wikis
+      end
     end
   end
 end
