@@ -16,7 +16,7 @@ users = User.all
 50.times do
   Wiki.create!(
     title: Faker::Book.unique.title,
-    body: Faker::Lorem.paragraph(20, true, 0),
+    body: Faker::Lorem.paragraphs(5, true).join("\n\n"),
     user: users.sample
   )
 end

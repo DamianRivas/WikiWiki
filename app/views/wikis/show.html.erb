@@ -11,6 +11,6 @@
 
 <div class="row">
   <div class="col-md-12">
-    <p><%= @wiki.body %></p>
+    <%= @markdown.render(@wiki.body).html_safe %>
   </div>
 </div>

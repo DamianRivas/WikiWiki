@@ -1,3 +1,5 @@
+require 'redcarpet'
+
 class WikisController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
@@ -10,6 +12,14 @@ class WikisController < ApplicationController
 
   def show
     @wiki = Wiki.find(params[:id])
+    @markdown = Redcarpet::Markdown.new(
+      Redcarpet::Render::HTML,
+      no_intra_emphasis: true,
+      fenced_code_blocks: true,
+      space_after_headers: true,
+      superscript: true,
+      underline: true
+    )
     
     authorize @wiki
   end

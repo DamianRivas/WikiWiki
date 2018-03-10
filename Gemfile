@@ -22,6 +22,10 @@ group :development do
   gem 'listen', '~> 3.1.5'
 end
 
+group :development, :production do
+  gem 'redcarpet'
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-controller-testing'
