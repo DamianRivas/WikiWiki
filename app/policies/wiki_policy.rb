@@ -18,11 +18,9 @@ class WikiPolicy < ApplicationPolicy
     def resolve
       public_wikis = scope.where(private: false)
       
-      if user.nil?
-        public_wikis
-      elsif user.admin?
+      if user.try(:admin?)
         scope.all
-      elsif user.premium?
+      elsif user.try(:premium?)
         user_owned_privates = scope.where(user: user, private: true)
         
         public_wikis.or(user_owned_privates)
