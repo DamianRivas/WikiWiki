@@ -2,6 +2,23 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= render partial: 'form', locals: { wiki: @wiki } %>
+    <%= render 'form', wiki: @wiki %>
   </div>
 </div>
+<% if authorized_for_collab %>
+  <div class="row">
+    <h3>Collaborators</h3>
+    <div class="col-md-8">
+      <%= render 'collaborators/form', wiki: @wiki, collaborator: Collaborator.new %>
+    </div>
+    <div class="col-md-4">
+      <h4>About Collaborators.</h4>
+      <p>On private wikis, you can designate other users as collaborators so other people can help you edit your private wikis. You can even designate other non-premium users!</p>
+      <p>If you get an error when trying to add a collaborator, check and make sure you spelled their e-mail correctly.</p>
+    </div>
+    <div class="col-md-8">
+      <h4>Collaborators List</h4>
+      <%= render @collaborators %>
+    </div>
+  </div>
+<% end %>

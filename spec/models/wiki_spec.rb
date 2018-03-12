@@ -8,6 +8,8 @@ RSpec.describe Wiki, type: :model do
   let(:wiki) { create(:wiki) }
   
   it { is_expected.to belong_to(:user) }
+  it { is_expected.to have_many(:collaborators) }
+  it { is_expected.to have_many(:users).through(:collaborators) }
   
   describe "attributes" do
     it "has title, body, and private attributes" do

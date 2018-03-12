@@ -30,6 +30,9 @@ user = User.new(
 user.skip_confirmation!
 user.save!
 
+User.first.update({ email: 'member@example.com' })
+User.second.update({ email: 'premium@example.com', role: 'premium' })
+
 Faker::Internet.unique.clear
 Faker::Book.unique.clear
 

@@ -1,0 +1,9 @@
+<h4>Add a Collaborator</h4>
+
+<%= form_for [wiki, collaborator] do |f| %>
+  <div class="form-group">
+    <%= f.label :user, class: 'sr-only' %>
+    <%= f.email_field :user, class: 'form-control', placeholder: "Enter the user's e-mail" %>
+  </div>
+  <%= f.submit "Add Collaborator", class: 'btn btn-basic pull-right' %>
+<% end %>

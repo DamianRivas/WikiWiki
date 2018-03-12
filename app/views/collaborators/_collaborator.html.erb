@@ -1,0 +1,10 @@
+<div class="media">
+  <div class="media-body media-middle">
+      <h4 class="media-heading"><%= collaborator.user.email %></h4>
+  </div>
+  <% if collaborator.leader == current_user %>
+    <div class="media-right">
+      <%= link_to "Remove", [collaborator.wiki, collaborator], method: :delete, class: "btn btn-danger" %>
+    </div>
+  <% end %>
+</div>
