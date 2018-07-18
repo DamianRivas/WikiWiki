@@ -15,3 +15,14 @@
 //= require jquery
 //= require bootstrap
 //= require_tree .
+let blocmetrics = {};
+
+// eventName is the name of the event as a string
+blocmetrics.report = eventName => {
+  let event = {event: { name: eventName }};
+  let request = new XMLHttpRequest();
+
+  request.open("POST", "http://localhost:3000/api/events", true);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.send(JSON.stringify(event));
+}

@@ -4,17 +4,17 @@ Rails.application.routes.draw do
   resources :collaborators, only: [:create, :destroy]
 
   devise_for :users
-  
+
   resources :users do
     member do
       put :user_downgrade
     end
   end
-  
+
   resources :wikis, only: [] do
     resources :collaborators, only: [:create, :destroy]
   end
-  
+
   get 'get-premium' => 'charges#new'
   get 'about' => 'welcome#about'
 
