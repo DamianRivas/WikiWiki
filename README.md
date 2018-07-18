@@ -2,6 +2,8 @@
 
 A wiki built with Ruby on Rails.
 
+**Visit https://my-wikiwiki-app.herokuapp.com/**
+
 ### For the full experience, upgrade to premium!
 
 Click on your e-mail in the top-right corner and click on "Upgrade." It's in testing
