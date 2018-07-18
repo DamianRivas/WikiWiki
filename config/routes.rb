@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users do
+  resources :users, only: [] do
     member do
       put :user_downgrade
     end
