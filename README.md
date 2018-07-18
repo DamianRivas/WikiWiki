@@ -4,6 +4,8 @@ A wiki built with Ruby on Rails.
 
 **Visit https://my-wikiwiki-app.herokuapp.com/**
 
+![Wiki](app/assets/images/wiki.jpg)
+
 ### For the full experience, upgrade to premium!
 
 Create an account and click on your e-mail in the top-right corner and click on "Upgrade." It's in testing mode, so as long as you enter "4242 4242 4242 4242" as the credit card number and a future expiration date it will go through successfully.
