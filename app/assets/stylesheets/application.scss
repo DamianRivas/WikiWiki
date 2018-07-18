@@ -5,3 +5,16 @@
 .container {
   margin-bottom: 35px;
 }
+
+.remove_button_css {
+  outline: none;
+  padding: 5px;
+  border: 0px;
+  box-sizing: none;
+  background-color: transparent;
+}
+
+.remove_button_css:focus,
+.remove_button_css:hover {
+  color: #23527c;
+}
