@@ -4,7 +4,7 @@ A wiki built with Ruby on Rails.
 
 **Visit https://my-wikiwiki-app.herokuapp.com/**
 
-![Wiki](app/assets/images/wiki.jpg)
+![Wiki](screenshots/wiki.jpg)
 
 ### For the full experience, upgrade to premium!
 
