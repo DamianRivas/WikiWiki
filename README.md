@@ -15,3 +15,5 @@ Create an account and click on your e-mail in the top-right corner and click on 
 Now you can create your own private wikis that only you can see! Also, you can add collaborators to your private wikis which will grant them the rights to view and edit your private wikis alongside you.
 
 Give it a shot, create a private wiki and add `damian@example.com` as a collaborator.
+
+![Premium Edit](screenshots/premium_wiki_edit.JPG)
